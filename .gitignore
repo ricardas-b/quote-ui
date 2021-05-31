@@ -1,4 +1,5 @@
 .idea/
+static/
 logs
 *.log
 npm-debug.log*

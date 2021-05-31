@@ -1,4 +1,5 @@
 import React from "react";
+import './RandomQuoteCard.css';
 
 
 async function fetchRandomQuote() {
@@ -24,7 +25,8 @@ async function fetchRandomQuote() {
         book: book.title,
         author: `${author.first_name}${author.middle_name ? " " + author.middle_name : ""} ${author.last_name}`,
         date: quote.date,
-        tags: quote.tags
+        tags: quote.tags,
+        id: quote.id
     });
 }
 
@@ -38,6 +40,7 @@ class RandomQuoteCard extends React.Component {
             author: "",
             date: "",
             tags: "",
+            id: "",
         };
     }
 
@@ -46,16 +49,34 @@ class RandomQuoteCard extends React.Component {
     }
 
     render() {
-        const { quote, book, author, date, tags } = this.state;
+        const { quote, book, author, date, tags, id } = this.state;
 
         return (
-            <div className="RandomQuoteCard">
-                <div className="random-quote">
-                    {quote}<br /><br />
-                    {book}<br />
-                    {author}<br />
-                    {date}<br />
-                    {tags}<br />
+            <div className="card">
+                <div className="card-content">
+
+                    <h1>A Brief Episode from Everyday Life In Soviet Times</h1>
+                    <div className="subtitle">Random Quote</div>
+                    <br />
+                    <p className="quote-text">
+                        {quote}
+                    </p>
+                    <br />
+
+                    <div className="card-details">
+                        <div className="card-details-inner">
+                            <div className="options">
+                                <div className="book-details">{book}</div>
+                                <div className="author-details">{author}</div>
+                                <div className="date-details">{date}</div>
+                                <div className="tag-details">Tags: {tags}</div>
+                                <div className="url-details">URL: {"http://127.0.0.1:8000/api/v1/quotes/" + id}</div>
+                            </div>
+                            <div className="next-quote">
+                                <button className="button" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

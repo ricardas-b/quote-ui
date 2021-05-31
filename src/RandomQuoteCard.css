@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+    line-height: 1.6;
+	font-family: 'Nunito', sans-serif
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.2;
+}
+
+
+.card {
+    flex: 1 1 50%;
+    position: relative;
+    border: 1px solid #efefef;
+	box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.card:hover {
+  box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+	color: #444444;
+    padding: 30px 30px 175px 30px;
+}
+
+.card-details {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.card-details-inner {
+    border-top: 1px solid #efefef;
+    margin: 0 30px;
+    padding: 10px 0px;
+}
+
+.card h1 {
+    margin: 0;
+}
+
+.card p {
+    margin: 0 0 30px;
+}
+
+.subtitle {
+    margin: 0 0 15px;
+	font-weight: 700;
+	color: #e76c67;
+}
+
+
+.button {
+  display: block;
+  font-size: 1rem;
+  background: #e76c67;
+  border: 1px solid #e76c67;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+}
+
+.button:hover,
+.button:focus {
+  background: darken(#e76c67, 10%);
+  border: 1px solid darken(#e76c67, 10%);
+}
+
+.card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.quote-text {
+	column-count: 2;
+	column-width: 300px;
+	column-gap: 30px;
+	text-align: justify;
+}
+
+.next-quote {
+	padding: 10px 0px
+}
