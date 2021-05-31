@@ -73,7 +73,7 @@ class RandomQuoteCard extends React.Component {
                                 <div className="url-details">URL: {"http://127.0.0.1:8000/api/v1/quotes/" + id}</div>
                             </div>
                             <div className="next-quote">
-                                <button className="button" type="button">Next</button>
+                                <button className="button" type="button" onClick={() => fetchRandomQuote.call(this)}>Next</button>
                             </div>
                         </div>
                     </div>
