@@ -74,7 +74,7 @@ class RandomQuoteCard extends React.Component {
                         {quote}
                     </p>
 
-                    <div className="url-details">{"http://127.0.0.1:8000/api/v1/quotes/" + id}</div>
+                    <div className="url-details"><a href={"http://127.0.0.1:8000/api/v1/quotes/" + id}>{"http://127.0.0.1:8000/api/v1/quotes/" + id}</a></div>
 
                 </div>
             </div>

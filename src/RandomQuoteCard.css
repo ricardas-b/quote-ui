@@ -100,3 +100,21 @@ h5 {
 .next-quote {
 	padding: 10px 0px
 }
+
+.url-details a {
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    padding: 3px 3px;
+}
+
+.url-details a:link,
+.url-details a:visited,
+.url-details a:focus {
+    background: #68c6df;
+}
+
+.url-details a:hover {
+    background: #54b2cb;
+}
