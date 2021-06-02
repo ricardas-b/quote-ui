@@ -1,21 +1,12 @@
 import React from "react";
+import Label from "./Label";
+import RANDOM_QUOTE_URL from "./settings";
 import './RandomQuoteCard.css';
 
 
 async function fetchRandomQuote() {
-    // Get data from API
-    const quote = await fetch("http://127.0.0.1:8000/api/v1/quotes/random/")
-        .then(async result => {
-            // Wait for data to be fetched so it can be modified. Without the
-            // internal async/await tag objects get accessed before they are
-            // even fetched
-
-            var quoteObj = await result.json();
-            var tagStrings = [];
-            quoteObj.tags.forEach(tagObj => tagStrings.push(tagObj.tag))
-            quoteObj.tags = tagStrings.join(", ");
-            return quoteObj;
-        });
+    // Get a random quote from API
+    const quote = await fetch(RANDOM_QUOTE_URL).then(result => result.json());
     const author = await fetch(quote.author).then(result => result.json());
     const book = await fetch(quote.book).then(result => result.json());
 
@@ -23,7 +14,7 @@ async function fetchRandomQuote() {
     this.setState({
         quote: quote.text,
         book: book.title,
-        author: `${author.first_name}${author.middle_name ? " " + author.middle_name : ""} ${author.last_name}`,
+        author: `${author.first_name}${author.middle_name ? (" " + author.middle_name) : ""} ${author.last_name}`,
         date: quote.date,
         tags: quote.tags,
         id: quote.id
@@ -39,13 +30,17 @@ class RandomQuoteCard extends React.Component {
             book: "",
             author: "",
             date: "",
-            tags: "",
+            tags: [],
             id: "",
         };
     }
 
     componentDidMount() {
         fetchRandomQuote.call(this);   // Two ways to pass context (<this>) to a function: use either <call> or <apply>
+    }
+
+    renderLabelComponents(tags){
+        return tags.map(item => <Label tagText={item.tag} key={item.id}/>);
     }
 
     render() {
@@ -56,27 +51,31 @@ class RandomQuoteCard extends React.Component {
                 <div className="card-content">
 
                     <h1>A Brief Episode from Everyday Life In Soviet Times</h1>
-                    <div className="subtitle">Random Quote</div>
-                    <br />
-                    <p className="quote-text">
-                        {quote}
-                    </p>
-                    <br />
+                    <div className="subtitle">Random Quote | Search | About</div>
 
+                    <div className="next-quote">
+                        <button className="button" type="button" onClick={() => fetchRandomQuote.call(this)}>Next</button>
+                    </div>
+
+                    <br />
                     <div className="card-details">
                         <div className="card-details-inner">
                             <div className="options">
                                 <div className="book-details">{book}</div>
                                 <div className="author-details">{author}</div>
                                 <div className="date-details">{date}</div>
-                                <div className="tag-details">Tags: {tags}</div>
-                                <div className="url-details">URL: {"http://127.0.0.1:8000/api/v1/quotes/" + id}</div>
-                            </div>
-                            <div className="next-quote">
-                                <button className="button" type="button" onClick={() => fetchRandomQuote.call(this)}>Next</button>
+                                <div className="tag-details">Tags: {this.renderLabelComponents(tags)}</div>
                             </div>
                         </div>
                     </div>
+
+                    <br />
+                    <p className="quote-text">
+                        {quote}
+                    </p>
+
+                    <div className="url-details">{"http://127.0.0.1:8000/api/v1/quotes/" + id}</div>
+
                 </div>
             </div>
         );
