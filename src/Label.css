@@ -1,9 +1,10 @@
 .label {
+    display: inline-block;
     color: white;
     padding: 3px 8px;
     margin: 3px;
 }
 
 .label-info {
-    background-color: #2196F3;
+    background-color: gray;
 }
