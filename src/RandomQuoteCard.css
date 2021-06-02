@@ -66,15 +66,16 @@ h5 {
 
 
 .button {
-  display: block;
-  font-size: 1rem;
-  background: #e76c67;
-  border: 1px solid #e76c67;
-  padding: 0.25rem 1rem;
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  text-align: center;
+    display: block;
+    font-size: 1rem;
+    background: #e76c67;
+    border: 1px solid #e76c67;
+    padding: 0.25rem 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
 }
 
 .button:hover,
@@ -97,7 +98,7 @@ h5 {
 	text-align: justify;
 }
 
-.next-quote {
+.another-quote {
 	padding: 10px 0px
 }
 

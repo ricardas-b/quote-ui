@@ -1,6 +1,7 @@
 import React from "react";
 import Label from "./Label";
 import RANDOM_QUOTE_URL from "./settings";
+import './static/font-awesome/css/font-awesome.min.css';
 import './RandomQuoteCard.css';
 
 
@@ -52,8 +53,8 @@ class RandomQuoteCard extends React.Component {
                     <h1>A Brief Episode from Everyday Life In Soviet Times</h1>
                     <div className="subtitle">Random Quote | Search | About</div>
 
-                    <div className="next-quote">
-                        <button className="button" type="button" onClick={() => this.fetchRandomQuote()}>Next</button>
+                    <div className="another-quote">
+                        <button className="button" type="button" onClick={() => this.fetchRandomQuote()}>Another</button>
                     </div>
 
                     <br />
@@ -73,7 +74,13 @@ class RandomQuoteCard extends React.Component {
                         {quote}
                     </p>
 
-                    <div className="url-details"><a href={"http://127.0.0.1:8000/api/v1/quotes/" + id}>{"http://127.0.0.1:8000/api/v1/quotes/" + id}</a></div>
+                    <div className="url-details">
+                        <span>Link: </span>
+                        <a href={"http://127.0.0.1:8000/api/v1/quotes/" + id}>
+                            {"http://127.0.0.1:8000/api/v1/quotes/" + id} <i className="fa fa-external-link-square" aria-hidden="true"></i>&nbsp;
+
+                        </a>
+                    </div>
 
                 </div>
             </div>
