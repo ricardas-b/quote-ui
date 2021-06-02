@@ -4,24 +4,6 @@ import RANDOM_QUOTE_URL from "./settings";
 import './RandomQuoteCard.css';
 
 
-async function fetchRandomQuote() {
-    // Get a random quote from API
-    const quote = await fetch(RANDOM_QUOTE_URL).then(result => result.json());
-    const author = await fetch(quote.author).then(result => result.json());
-    const book = await fetch(quote.book).then(result => result.json());
-
-    // Update React component state
-    this.setState({
-        quote: quote.text,
-        book: book.title,
-        author: `${author.first_name}${author.middle_name ? (" " + author.middle_name) : ""} ${author.last_name}`,
-        date: quote.date,
-        tags: quote.tags,
-        id: quote.id
-    });
-}
-
-
 class RandomQuoteCard extends React.Component {
     constructor(props) {
         super(props);
@@ -35,8 +17,25 @@ class RandomQuoteCard extends React.Component {
         };
     }
 
+    async fetchRandomQuote() {
+        // Get a random quote from API
+        const quote = await fetch(RANDOM_QUOTE_URL).then(result => result.json());
+        const author = await fetch(quote.author).then(result => result.json());
+        const book = await fetch(quote.book).then(result => result.json());
+
+        // Update React component state
+        this.setState({
+            quote: quote.text,
+            book: book.title,
+            author: `${author.first_name}${author.middle_name ? (" " + author.middle_name) : ""} ${author.last_name}`,
+            date: quote.date,
+            tags: quote.tags,
+            id: quote.id
+        });
+    }
+
     componentDidMount() {
-        fetchRandomQuote.call(this);   // Two ways to pass context (<this>) to a function: use either <call> or <apply>
+        this.fetchRandomQuote();
     }
 
     renderLabelComponents(tags){
@@ -54,7 +53,7 @@ class RandomQuoteCard extends React.Component {
                     <div className="subtitle">Random Quote | Search | About</div>
 
                     <div className="next-quote">
-                        <button className="button" type="button" onClick={() => fetchRandomQuote.call(this)}>Next</button>
+                        <button className="button" type="button" onClick={() => this.fetchRandomQuote()}>Next</button>
                     </div>
 
                     <br />
