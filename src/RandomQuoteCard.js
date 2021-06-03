@@ -9,7 +9,7 @@ class RandomQuoteCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            quote: "",
+            quote: "Loading...",
             book: "",
             author: "",
             date: "",
@@ -50,7 +50,7 @@ class RandomQuoteCard extends React.Component {
             <div className="card">
                 <div className="card-content">
 
-                    <h1>A Brief Episode from Everyday Life In Soviet Times</h1>
+
                     <div className="subtitle">Random Quote | Search | About</div>
 
                     <div className="another-quote">
@@ -64,7 +64,7 @@ class RandomQuoteCard extends React.Component {
                                 <div className="book-details">{book}</div>
                                 <div className="author-details">{author}</div>
                                 <div className="date-details">{date}</div>
-                                <div className="tag-details">Tags: {this.renderLabelComponents(tags)}</div>
+                                <div className="tag-details">{this.renderLabelComponents(tags)}</div>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,6 @@ class RandomQuoteCard extends React.Component {
                     </p>
 
                     <div className="url-details">
-                        <span>Link: </span>
                         <a href={"http://127.0.0.1:8000/api/v1/quotes/" + id}>
                             {"http://127.0.0.1:8000/api/v1/quotes/" + id} <i className="fa fa-external-link-square" aria-hidden="true"></i>&nbsp;
 
