@@ -1,1 +1,15 @@
-/* TBD */
+button.nav-button {
+    border: 1px solid black;
+    /*border-top-right-radius: 5px;*/
+}
+
+button.nav-button-active {
+    background-color: white;
+    border-bottom: 1px solid white;
+}
+
+hr.nav-separator {
+    border-top: 1px solid black;
+    border-bottom: 0px solid black;
+    margin-top: -4px;
+}

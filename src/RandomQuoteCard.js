@@ -3,6 +3,9 @@ import Label from "./Label";
 import RANDOM_QUOTE_URL from "./settings";
 import './static/font-awesome/css/font-awesome.min.css';
 import './RandomQuoteCard.css';
+import AboutCard from "./AboutCard";
+import renderCard from "./utils";
+import SearchQuoteCard from "./SearchQuoteCard";
 
 
 class RandomQuoteCard extends React.Component {
@@ -50,8 +53,14 @@ class RandomQuoteCard extends React.Component {
             <div className="card">
                 <div className="card-content">
 
+                    <div>
+                        <button className="nav-button nav-button-active" type="button">Random</button>&nbsp;
+                        <button className="nav-button" type="button" onClick={() => renderCard(<SearchQuoteCard />)}>Search</button>&nbsp;
+                        <button className="nav-button" type="button" onClick={() => renderCard(<AboutCard />)}>About</button>
+                    </div>
 
-                    <div className="subtitle">Random Quote | Search | About</div>
+                    <hr className="nav-separator"/>
+                    <br />
 
                     <div className="another-quote">
                         <button className="button" type="button" onClick={() => this.fetchRandomQuote()}>Another</button>
