@@ -79,7 +79,7 @@ class RandomQuoteCard extends React.Component {
                     </div>
 
                     <br />
-                    <p className="quote-text">
+                    <p className="quote-text" style={{columnCount: quote.split(" ").length > 30 ? 2 : 1}}>
                         {quote}
                     </p>
 
