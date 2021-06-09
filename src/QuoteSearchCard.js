@@ -2,9 +2,12 @@ import React from "react";
 import RandomQuoteCard from "./RandomQuoteCard";
 import AboutCard from "./AboutCard";
 import renderCard from "./utils";
+import QuoteSearchForm from "./QuoteSearchForm";
+
+import { Quote, QuoteList } from "./ComponentLibrary";
 
 
-class SearchQuoteCard extends React.Component {
+class QuoteSearchCard extends React.Component {
     render() {
         return (
             <div className="card">
@@ -18,7 +21,19 @@ class SearchQuoteCard extends React.Component {
                     <hr className="nav-separator"/>
                     <br />
 
-                    <div>Search tab. TBD</div>
+                    <div>
+                        <QuoteSearchForm />
+                    </div>
+
+                    <br />
+                    <br />
+                    <br />
+                    <div id={"quotecontainer"}>
+                        <QuoteList data={{quoteIds: []}}/>
+                    </div>
+
+
+
                 </div>
             </div>
         );
@@ -26,4 +41,4 @@ class SearchQuoteCard extends React.Component {
 }
 
 
-export default SearchQuoteCard;
+export default QuoteSearchCard;

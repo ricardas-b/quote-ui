@@ -102,7 +102,7 @@ h5 {
 	padding: 10px 0px
 }
 
-.url-details a {
+.external-link a {
     outline: none;
     text-decoration: none;
     text-align: center;
@@ -110,13 +110,13 @@ h5 {
     padding: 3px 3px;
 }
 
-.url-details a:link,
-.url-details a:visited,
-.url-details a:focus {
+.external-link a:link,
+.external-link a:visited,
+.external-link a:focus {
     background: #68c6df;
 }
 
-.url-details a:hover {
+.external-link a:hover {
     background: #54b2cb;
 }
 

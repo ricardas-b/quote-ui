@@ -1,11 +1,11 @@
 import React from "react";
 import Label from "./Label";
-import RANDOM_QUOTE_URL from "./settings";
+import { RANDOM_QUOTE_URL } from "./settings";
 import './static/font-awesome/css/font-awesome.min.css';
 import './RandomQuoteCard.css';
 import AboutCard from "./AboutCard";
 import renderCard from "./utils";
-import SearchQuoteCard from "./SearchQuoteCard";
+import QuoteSearchCard from "./QuoteSearchCard";
 
 
 class RandomQuoteCard extends React.Component {
@@ -55,7 +55,7 @@ class RandomQuoteCard extends React.Component {
 
                     <div>
                         <button className="nav-button nav-button-active" type="button">Random</button>&nbsp;
-                        <button className="nav-button" type="button" onClick={() => renderCard(<SearchQuoteCard />)}>Search</button>&nbsp;
+                        <button className="nav-button" type="button" onClick={() => renderCard(<QuoteSearchCard />)}>Search</button>&nbsp;
                         <button className="nav-button" type="button" onClick={() => renderCard(<AboutCard />)}>About</button>
                     </div>
 
@@ -83,7 +83,7 @@ class RandomQuoteCard extends React.Component {
                         {quote}
                     </p>
 
-                    <div className="url-details">
+                    <div className="external-link">
                         <a href={"http://127.0.0.1:8000/api/v1/quotes/" + id}>
                             {"http://127.0.0.1:8000/api/v1/quotes/" + id} <i className="fa fa-external-link-square" aria-hidden="true"></i>&nbsp;
 
