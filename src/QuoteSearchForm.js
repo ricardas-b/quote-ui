@@ -63,32 +63,13 @@ class QuoteSearchForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         let tagIds = this.state.tags.map(tag => tag.id).join(",");
-        console.log(this.state.tags);
-        console.log(tagIds);
 
         fetch(TAGGED_QUOTE_URL + tagIds)
             .then(result => result.json())
             .then(result => {
                 const quoteIds = result.results.map(quote => quote.id);
-                console.log("quoteIds: " + quoteIds);
-                console.log("quotecontainer:");
-                console.log(document.getElementById('quotecontainer'));
-
-                /*
-                ReactDOM.render(
-                    <QuoteList data={{quoteIds: quoteIds}}/>,
-                    document.getElementById('quotecontainer')
-                );
-                */
-
                 updateQuoteList(quoteIds);
             })
-
-
-
-
-
-
     }
 
     render() {

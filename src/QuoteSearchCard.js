@@ -28,12 +28,7 @@ class QuoteSearchCard extends React.Component {
                     <br />
                     <br />
                     <br />
-                    <div id={"quotecontainer"}>
-                        <QuoteList quoteIds={[]}/>
-                    </div>
-
-
-
+                    <QuoteList quoteIds={[]}/>
                 </div>
             </div>
         );
