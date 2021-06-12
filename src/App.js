@@ -5,6 +5,7 @@ import RandomCard from "./components/RandomCard";
 import SearchCard from "./components/SearchCard";
 import NavigationPanel from "./components/NavigationPanel";
 
+import "./static/custom/css/App.css";
 
 class App extends React.Component {
 	constructor(props) {
@@ -37,11 +38,15 @@ class App extends React.Component {
 		console.log("-----------------------------");
 
 		return (
-			<div className="App">
-				<NavigationPanel ref={this.navigationPanelComponent} activeCard={this.state.activeCard} onCardChange={this.handleCardChange}/>
-				{(this.state.activeCard === "about") && <AboutCard />}
-				{(this.state.activeCard === "random") && <RandomCard />}
-				{(this.state.activeCard === "search") && <SearchCard />}
+			<div className="app">
+				<div className="card">
+					<NavigationPanel ref={this.navigationPanelComponent} activeCard={this.state.activeCard} onCardChange={this.handleCardChange}/>
+					<div className="card-content">
+						{(this.state.activeCard === "about") && <AboutCard />}
+						{(this.state.activeCard === "random") && <RandomCard />}
+						{(this.state.activeCard === "search") && <SearchCard />}
+					</div>
+				</div>
 			</div>
 		);
 	}

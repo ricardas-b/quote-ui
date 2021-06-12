@@ -23,28 +23,29 @@ class NavigationPanel extends React.Component {
         let randomButton, searchButton, aboutButton;
 
         if (this.state.activeCard === "random") {
-            randomButton = <button disabled className="nav-button" type="button">Random</button>
+            randomButton = <button className="nav-button nav-button-active" type="button">Random</button>
         } else {
-            randomButton = <button className="nav-button nav-button-active" type="button" onClick={() => this.props.onCardChange("random")}>Random</button>
+            randomButton = <button className="nav-button" type="button" onClick={() => this.props.onCardChange("random")}>Random</button>
         }
 
         if (this.state.activeCard === "search") {
-            searchButton = <button disabled className="nav-button" type="button">Search</button>
+            searchButton = <button className="nav-button nav-button-active" type="button">Search</button>
         } else {
-            searchButton = <button className="nav-button nav-button-active" type="button" onClick={() => this.props.onCardChange("search")}>Search</button>
+            searchButton = <button className="nav-button" type="button" onClick={() => this.props.onCardChange("search")}>Search</button>
         }
 
         if (this.state.activeCard === "about") {
-            aboutButton = <button disabled className="nav-button" type="button">About</button>
+            aboutButton = <button className="nav-button nav-button-active" type="button">About</button>
         } else {
-            aboutButton = <button className="nav-button nav-button-active" type="button" onClick={() => this.props.onCardChange("about")}>About</button>
+            aboutButton = <button className="nav-button" type="button" onClick={() => this.props.onCardChange("about")}>About</button>
         }
 
         return (
-            <div>
+            <div className="navigation-panel" >
                 {randomButton}
                 {searchButton}
                 {aboutButton}
+                <hr className="nav-separator"/>
             </div>
         );
     }
