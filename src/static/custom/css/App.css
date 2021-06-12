@@ -2,6 +2,19 @@
     box-sizing: border-box;
 }
 
+html {
+    line-height: 1.6;
+    font-family: 'Nunito', sans-serif
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.2;
+}
+
 .card {
     max-width: 800px;
     flex: 1 1 50%;
@@ -41,6 +54,7 @@
 
 button.nav-button {
     border: 1px solid black;
+    margin-right: 3px;
     /*border-top-right-radius: 5px;*/
 }
 
@@ -55,4 +69,20 @@ hr.nav-separator {
     margin-top: -4px;
 }
 
-xx
+.external-link a {
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    padding: 3px 3px;
+}
+
+.external-link a:link,
+.external-link a:visited,
+.external-link a:focus {
+    background: #68c6df;
+}
+
+.external-link a:hover {
+    background: #54b2cb;
+}

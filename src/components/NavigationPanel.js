@@ -1,7 +1,4 @@
 import React from "react";
-import renderCard from "../utils";
-import RandomQuoteCard from "../RandomQuoteCard";
-import AboutCard from "../AboutCard";
 
 
 class NavigationPanel extends React.Component {

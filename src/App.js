@@ -6,6 +6,8 @@ import SearchCard from "./components/SearchCard";
 import NavigationPanel from "./components/NavigationPanel";
 
 import "./static/custom/css/App.css";
+import "./static/custom/css/ReactTagAutocomplete.css";
+
 
 class App extends React.Component {
 	constructor(props) {
