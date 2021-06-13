@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactTags from 'react-tag-autocomplete';
 
-import { STARTS_WITH_TAGS_URL, TAGGED_QUOTE_URL } from "./settings";
+import { updateQuoteList } from './QuoteList';
+import { STARTS_WITH_TAGS_URL, TAGGED_QUOTE_URL } from "../settings";
 
 
 

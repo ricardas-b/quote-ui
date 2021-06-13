@@ -5,6 +5,8 @@ import RandomCard from "./components/RandomCard";
 import SearchCard from "./components/SearchCard";
 import NavigationPanel from "./components/NavigationPanel";
 
+import './static/font-awesome/css/font-awesome.min.css';
+
 import "./static/custom/css/App.css";
 import "./static/custom/css/ReactTagAutocomplete.css";
 

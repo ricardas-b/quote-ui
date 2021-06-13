@@ -86,3 +86,21 @@ hr.nav-separator {
 .external-link a:hover {
     background: #54b2cb;
 }
+
+.label {
+    display: inline-block;
+    color: white;
+    padding: 3px 8px;
+    margin: 3px;
+}
+
+.label-info {
+    background-color: gray;
+}
+
+.quote-text {
+    column-count: 2;
+    column-width: 300px;
+    column-gap: 30px;
+    text-align: justify;
+}

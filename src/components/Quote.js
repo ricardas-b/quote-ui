@@ -1,4 +1,9 @@
 import React from "react";
+
+import { Author } from "./Author";
+import { Book } from "./Book";
+import { ExternalLink } from "./ExternalLink";
+import { LabelList } from "./LabelList";
 import {BASE_QUOTE_URL} from "../settings";
 
 
@@ -36,7 +41,7 @@ class Quote extends React.Component {
                     <div className="date-details">{this.state.date}</div>
                     <LabelList tags={this.state.tags}/>
                     <p className="quote-text" style={{columnCount: this.state.text.split(" ").length > 30 ? 2 : 1}}>{this.state.text}</p>
-                    <ExternalLink url={(BASE_QUOTE_URL + this.state.id)}/>
+                    <ExternalLink url={(BASE_QUOTE_URL + this.state.id)} text={(BASE_QUOTE_URL + this.state.id)}/>
                 </div>
             );
         } else {
@@ -44,3 +49,5 @@ class Quote extends React.Component {
         }
     }
 }
+
+export { Quote };
