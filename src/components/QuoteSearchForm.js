@@ -18,24 +18,35 @@ class QuoteSearchForm extends React.Component {
         };
 
         this.reactTags = React.createRef()
-        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleTagSelectionChange(tags) {
+        let tagIds = tags.map(tag => tag.id).join(",");
+
+        fetch(TAGGED_QUOTE_URL + tagIds)
+            .then(result => result.json())
+            .then(result => {
+                const quoteIds = result.results.map(quote => quote.id);
+                this.setState({
+                    tags: tags,
+                    quoteIds: quoteIds,
+                });
+            })
     }
 
     onDelete(i) {
         const tags = this.state.tags.slice(0)
         tags.splice(i, 1)
-        this.setState({ tags: tags })
-        console.log("QuoteSearchForm, onDelete, this.setState");
+        this.handleTagSelectionChange(tags);
     }
 
     onAddition(tag) {
         const tags = [].concat(this.state.tags, tag)
-        this.setState({ tags: tags })
-        console.log("QuoteSearchForm, onAddition, this.setState");
+        this.handleTagSelectionChange(tags);
     }
 
     async onInput(query) {
-        const ttl = await fetch(STARTS_WITH_TAGS_URL + query)
+        await fetch(STARTS_WITH_TAGS_URL + query)
             .then(result => result.json())
             .then(tagList => {
                 // Filter out suggested tags that might already be selected
@@ -61,36 +72,13 @@ class QuoteSearchForm extends React.Component {
                 }
 
                 this.setState({ suggestions: suggestionsWithoutDuplicates })
-                console.log("QuoteSearchForm, onInput, this.setState");
             });
     }
 
-    handleSubmit(event) {
-        console.log("QuoteSearchForm, handleSubmit: triggered");
-        event.preventDefault();
-        let tagIds = this.state.tags.map(tag => tag.id).join(",");
-
-        fetch(TAGGED_QUOTE_URL + tagIds)
-            .then(result => result.json())
-            .then(result => {
-                const quoteIds = result.results.map(quote => quote.id);
-                console.log("QuoteSearchForm, handleSubmit: quoteIds fetched");
-                console.log(quoteIds);
-                console.log("##############################");
-                this.setState({quoteIds: quoteIds});
-                console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-
-            })
-    }
-
     render() {
-        console.log("QuoteSearchForm, render: triggered");
-        console.log("QuoteSearchForm, this.state.quoteIds:");
-        console.log(this.state.quoteIds);
-        console.log("---------------------------");
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={null}>
                     <label>
                         Tags:
                         <ReactTags
@@ -105,8 +93,6 @@ class QuoteSearchForm extends React.Component {
                         />
                         <br/>
                     </label>
-
-                    <input className="button" type="submit" value="Search"/>
                 </form>
                 <QuoteList quoteIds={this.state.quoteIds} />
             </div>

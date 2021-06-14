@@ -11,10 +11,6 @@ class QuoteList extends React.Component {
     }
 
     render() {
-        console.log("QuoteList, render: triggered");
-        console.log("QuoteList, render, this.props.quoteIds:");
-        console.log(this.props.quoteIds);
-        console.log("------------------------------");
         return (
             <div>
                 {this.props.quoteIds.length > 0 ? <h2>Results</h2> : ""}
