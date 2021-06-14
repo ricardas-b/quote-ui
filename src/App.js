@@ -20,27 +20,15 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log("App, componentDidMount, state");
-		console.log(this.state);
 		this.setState({activeCard: "random"});
-		console.log(this.state);
-		console.log("-----------------------------");
 	}
 
 	handleCardChange(cardName) {
-		console.log("App, handleCardChange, cardName: " + cardName);
-		console.log("App, handleCardChange, state");
-		console.log(this.state);
 		this.setState({activeCard: cardName});
 		this.navigationPanelComponent.current.changeActiveCard(cardName);
-		console.log(this.state);
-		console.log("-----------------------------");
 	}
 
 	render() {
-		console.log("App, render, ac: " + this.state.activeCard);
-		console.log("-----------------------------");
-
 		return (
 			<div className="app">
 				<div className="card">

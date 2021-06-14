@@ -4,12 +4,7 @@ import React from "react";
 class NavigationPanel extends React.Component {
     constructor(props) {
         super(props);
-        console.log("NavigationPanel, constructor, props");
-        console.log(props)
         this.state = {activeCard: props.activeCard};
-        console.log("NavigationPanel, constructor, state");
-        console.log(this.state);
-        console.log("-----------------------------");
     }
 
     changeActiveCard(newActiveCard) {
