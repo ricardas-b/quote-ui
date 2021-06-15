@@ -2,7 +2,8 @@ import React from 'react';
 import ReactTags from 'react-tag-autocomplete';
 
 import { QuoteList } from './QuoteList';
-import { STARTS_WITH_TAGS_URL, TAGGED_QUOTE_URL } from "../settings";
+import { LabelList } from './LabelList';
+import {RANDOM_QUOTE_URL, STARTS_WITH_TAGS_URL, TAGGED_QUOTE_URL, TAGS_URL} from "../settings";
 
 
 
@@ -14,11 +15,34 @@ class QuoteSearchForm extends React.Component {
             substring: '',
             tags: [],
             suggestions: [],
-            quoteIds: []
+            quoteIds: [],
+            supportedTagList: []   // DEV
         };
 
         this.reactTags = React.createRef()
     }
+
+    // DEV
+    async fetchPaginatedData(url, previousData=[]) {
+        return fetch(url)
+            .then(response => response.json())
+            .then(response => {
+                //const newData = response.results.map(item => item.name);
+                const newData = response.results;
+                const accumulatedData = [...previousData, ...newData];
+
+                if (response.next !== null) {
+                    return this.fetchPaginatedData(response.next, accumulatedData);
+                }
+
+                return accumulatedData;
+            });
+    }
+
+    componentDidMount() {
+        this.fetchPaginatedData(TAGS_URL).then(data => this.setState({supportedTagList: data}));
+    }
+    // /DEV
 
     handleTagSelectionChange(tags) {
         let tagIds = tags.map(tag => tag.id).join(",");
@@ -94,6 +118,9 @@ class QuoteSearchForm extends React.Component {
                         <br/>
                     </label>
                 </form>
+
+                <LabelList tags={this.state.supportedTagList}/>
+
                 <QuoteList quoteIds={this.state.quoteIds} />
             </div>
         );
