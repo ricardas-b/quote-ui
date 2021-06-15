@@ -34,6 +34,11 @@ class RandomCard extends React.Component {
         return (
             <div>
                 <h2>Random Quote</h2>
+                <button className="button" type="button" onClick={() => this.fetchData()}>
+                    Another <i className="fa fa-random"></i>
+                </button>
+                <br />
+                <br />
                 {quoteComponent}
             </div>
         );
