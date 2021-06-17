@@ -34,9 +34,17 @@ h5 {
     padding: 30px 30px 30px 30px;
 }
 
+.card-caption {
+    padding: 0px 0px 0px 0px;
+}
+
+.inside-card-separator {
+    padding: 0px 0px 60px 0px;
+}
+
 .navigation-panel {
     color: #444444;
-    padding: 30px 30px 30px 30px;
+    padding: 30px 30px 0px 30px;
 }
 
 .button {
@@ -103,4 +111,25 @@ hr.nav-separator {
     column-width: 300px;
     column-gap: 30px;
     text-align: justify;
+}
+
+
+
+.collapsible-control {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.collapsible-content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
 }
