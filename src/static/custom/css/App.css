@@ -38,7 +38,15 @@ h5 {
     padding: 0px 0px 0px 0px;
 }
 
-.inside-card-separator {
+div.inside-card-separator-15 {
+    padding: 0px 0px 15px 0px;
+}
+
+div.inside-card-separator-30 {
+    padding: 0px 0px 30px 0px;
+}
+
+div.inside-card-separator-60 {
     padding: 0px 0px 60px 0px;
 }
 
