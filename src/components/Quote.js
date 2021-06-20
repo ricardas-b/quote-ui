@@ -35,7 +35,7 @@ class Quote extends React.Component {
             const authorId = this.state.author.split("/").reverse()[1];
 
             return (
-                <div>
+                <div className={"quote-component"}>
                     <Book id={bookId}/>
                     <Author id={authorId}/>
                     <div className="date-details">{this.state.date}</div>

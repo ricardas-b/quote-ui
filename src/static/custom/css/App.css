@@ -121,23 +121,30 @@ hr.nav-separator {
     text-align: justify;
 }
 
-
-
-.collapsible-control {
-    background-color: #777;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
+.quote-component {
+    padding: 0px 0px 90px 0px;
 }
 
-.collapsible-content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
+
+
+
+details {
+    border: 1px solid #D1D1D1;
+    padding: .5em .5em 0;
+}
+
+summary {
+    color: #444444;
+    font-weight:normal;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #D1D1D1;
+    margin-bottom: .5em;
 }

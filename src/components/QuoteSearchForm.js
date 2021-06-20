@@ -4,6 +4,7 @@ import ReactTags from 'react-tag-autocomplete';
 import { QuoteList } from './QuoteList';
 import { LabelList } from './LabelList';
 import {RANDOM_QUOTE_URL, STARTS_WITH_TAGS_URL, TAGGED_QUOTE_URL, TAGS_URL} from "../settings";
+import {Label} from "./Label";
 
 
 
@@ -12,11 +13,10 @@ class QuoteSearchForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            substring: '',
-            tags: [],
-            suggestions: [],
+            selectedTags: [],
+            suggestedTags: [],
             quoteIds: [],
-            supportedTagList: []   // DEV
+            remainingTags: []   // Considering the tags that are already selected, keep the list or the remaining tags that would still give non-empty quote search results
         };
 
         this.reactTags = React.createRef()
@@ -35,12 +35,13 @@ class QuoteSearchForm extends React.Component {
                     return this.fetchPaginatedData(response.next, accumulatedData);
                 }
 
+                console.log(accumulatedData);
                 return accumulatedData;
             });
     }
 
     componentDidMount() {
-        this.fetchPaginatedData(TAGS_URL).then(data => this.setState({supportedTagList: data}));
+        this.fetchPaginatedData(TAGS_URL).then(data => this.setState({remainingTags: data}));
     }
     // /DEV
 
@@ -52,20 +53,20 @@ class QuoteSearchForm extends React.Component {
             .then(result => {
                 const quoteIds = result.results.map(quote => quote.id);
                 this.setState({
-                    tags: tags,
-                    quoteIds: quoteIds,
+                    selectedTags: tags,
+                    quoteIds: quoteIds
                 });
-            })
+            });
     }
 
     onDelete(i) {
-        const tags = this.state.tags.slice(0)
+        const tags = this.state.selectedTags.slice(0)
         tags.splice(i, 1)
         this.handleTagSelectionChange(tags);
     }
 
     onAddition(tag) {
-        const tags = [].concat(this.state.tags, tag)
+        const tags = [].concat(this.state.selectedTags, tag)
         this.handleTagSelectionChange(tags);
     }
 
@@ -75,7 +76,7 @@ class QuoteSearchForm extends React.Component {
             .then(tagList => {
                 // Filter out suggested tags that might already be selected
                 let newTagSuggestions = tagList.results;
-                let currentTags = this.state.tags;
+                let currentTags = this.state.selectedTags;
                 let suggestionsWithoutDuplicates = [];
 
                 for (let i=0; i<newTagSuggestions.length; i++) {
@@ -95,20 +96,21 @@ class QuoteSearchForm extends React.Component {
                     }
                 }
 
-                this.setState({ suggestions: suggestionsWithoutDuplicates })
+                this.setState({ suggestedTags: suggestionsWithoutDuplicates })
             });
     }
 
     render() {
         return (
             <div>
+                Selected tags:
+                <div className={"inside-card-separator-15"}></div>
                 <form onSubmit={null}>
                     <label>
-                        Tags:
                         <ReactTags
                             ref={this.reactTags}
-                            tags={this.state.tags}
-                            suggestions={this.state.suggestions}
+                            tags={this.state.selectedTags}
+                            suggestions={this.state.suggestedTags}
                             onDelete={this.onDelete.bind(this)}
                             onAddition={this.onAddition.bind(this)}
                             onInput={this.onInput.bind(this)}
@@ -119,7 +121,12 @@ class QuoteSearchForm extends React.Component {
                     </label>
                 </form>
 
-                <LabelList tags={this.state.supportedTagList}/>
+                <details open>
+                    <summary>Possible tags</summary>
+                    <LabelList tags={this.state.remainingTags}/>
+                </details>
+
+                <div className={"inside-card-separator-30"}></div>
 
                 <QuoteList quoteIds={this.state.quoteIds} />
             </div>
