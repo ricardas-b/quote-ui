@@ -15,21 +15,24 @@ h5 {
     line-height: 1.2;
 }
 
-.card {
+.custom-card {
     max-width: 800px;
     flex: 1 1 50%;
     position: relative;
-    border: 1px solid #efefef;
+    /*border: 1px solid #efefef;*/
     transition: all 0.3s ease;
     position: relative;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
-.card:hover {
+/*
+.custom-card:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.075);
 }
+*/
 
-.card-content {
+
+.custom-card-content {
     color: #444444;
     padding: 30px 30px 30px 30px;
 }
@@ -50,12 +53,12 @@ div.inside-card-separator-60 {
     padding: 0px 0px 60px 0px;
 }
 
-.navigation-panel {
+.custom-navigation-panel {
     color: #444444;
     padding: 30px 30px 0px 30px;
 }
 
-.button {
+.custom-button {
     display: inline-block;
     font-size: 1rem;
     background: #e76c67;
@@ -71,7 +74,7 @@ div.inside-card-separator-60 {
 button.nav-button {
     border: 1px solid black;
     margin-right: 3px;
-    /*border-top-right-radius: 5px;*/
+    outline:none;   /* Removes focus-frame */
 }
 
 button.nav-button-active {
@@ -82,7 +85,7 @@ button.nav-button-active {
 hr.nav-separator {
     border-top: 1px solid black;
     border-bottom: 0px solid black;
-    margin-top: -4px;
+    margin-top: -1px;
 }
 
 .external-link a {

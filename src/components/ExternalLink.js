@@ -11,7 +11,7 @@ class ExternalLink extends React.Component {
         return (
             <div className="external-link">
                 <a href={this.state.url}>
-                    {this.state.text}
+                    Quote Link
                     <span> </span>
                     <i className="fa fa-external-link-square" aria-hidden="true"></i>
                 </a>

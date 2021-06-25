@@ -31,9 +31,9 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<div className="card">
+				<div className="custom-card">
 					<NavigationPanel ref={this.navigationPanelComponent} activeCard={this.state.activeCard} onCardChange={this.handleCardChange}/>
-					<div className="card-content">
+					<div className="custom-card-content">
 						{(this.state.activeCard === "about") && <AboutCard />}
 						{(this.state.activeCard === "random") && <RandomCard />}
 						{(this.state.activeCard === "search") && <SearchCard />}

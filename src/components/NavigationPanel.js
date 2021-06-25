@@ -33,7 +33,7 @@ class NavigationPanel extends React.Component {
         }
 
         return (
-            <div className="navigation-panel" >
+            <div className="custom-navigation-panel" >
                 {randomButton}
                 {searchButton}
                 {aboutButton}
