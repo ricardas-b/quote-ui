@@ -1,6 +1,6 @@
 import React from "react";
 
-import QuoteSearchForm from "./QuoteSearchForm";
+import { QuoteSearchForm } from "./QuoteSearchForm";
 
 
 class SearchCard extends React.Component {
@@ -16,4 +16,4 @@ class SearchCard extends React.Component {
 }
 
 
-export default SearchCard;
+export { SearchCard };

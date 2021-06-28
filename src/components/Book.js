@@ -1,12 +1,13 @@
 import React from "react";
-import {BASE_BOOK_URL} from "../settings";
+
+import { BASE_BOOK_URL } from "../settings";
 
 
 class Book extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: this.props.id,
+            id: props.id,
             title: ""
         };
     }

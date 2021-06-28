@@ -40,4 +40,4 @@ class AboutCard extends React.Component {
 }
 
 
-export default AboutCard;
+export { AboutCard };

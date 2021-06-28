@@ -3,8 +3,7 @@ import ReactTags from 'react-tag-autocomplete';
 
 import { QuoteList } from './QuoteList';
 import { TagLabelList } from './TagLabelList';
-import { RANDOM_QUOTE_URL, STARTS_WITH_TAGS_URL, TAGGED_QUOTE_URL, TAGS_URL } from "../settings";
-import {TagLabel} from "./TagLabel";
+import { STARTS_WITH_TAGS_URL, TAGGED_QUOTE_URL, TAGS_URL } from "../settings";
 
 
 
@@ -134,4 +133,4 @@ class QuoteSearchForm extends React.Component {
 }
 
 
-export default QuoteSearchForm;
+export { QuoteSearchForm };

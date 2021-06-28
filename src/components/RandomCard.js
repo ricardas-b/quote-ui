@@ -1,7 +1,7 @@
 import React from "react";
 
-import {Quote} from "./Quote";
-import {RANDOM_QUOTE_URL} from "../settings";
+import { Quote } from "./Quote";
+import { RANDOM_QUOTE_URL } from "../settings";
 
 
 class RandomCard extends React.Component {
@@ -46,4 +46,4 @@ class RandomCard extends React.Component {
 }
 
 
-export default RandomCard;
+export { RandomCard };

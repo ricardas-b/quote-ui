@@ -44,4 +44,4 @@ class NavigationPanel extends React.Component {
 }
 
 
-export default NavigationPanel;
+export { NavigationPanel };

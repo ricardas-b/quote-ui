@@ -1,12 +1,13 @@
 import React from "react";
-import {BASE_AUTHOR_URL} from "../settings";
+
+import { BASE_AUTHOR_URL } from "../settings";
 
 
 class Author extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: this.props.id,
+            id: props.id,
             first_name: "",
             middle_name: "",
             last_name: ""

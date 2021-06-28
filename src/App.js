@@ -1,9 +1,9 @@
 import React from "react";
 
-import AboutCard from "./components/AboutCard";
-import RandomCard from "./components/RandomCard";
-import SearchCard from "./components/SearchCard";
-import NavigationPanel from "./components/NavigationPanel";
+import { NavigationPanel } from "./components/NavigationPanel";
+import { AboutCard } from "./components/AboutCard";
+import { RandomCard } from "./components/RandomCard";
+import { SearchCard } from "./components/SearchCard";
 
 import './static/font-awesome/css/font-awesome.min.css';
 
@@ -43,4 +43,4 @@ class App extends React.Component {
 }
 
 
-export default App;
+export { App };
