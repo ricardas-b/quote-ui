@@ -5,7 +5,10 @@ import {BASE_BOOK_URL} from "../settings";
 class Book extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { ...props };
+        this.state = {
+            id: this.props.id,
+            title: ""
+        };
     }
 
     async fetchData(bookId) {
