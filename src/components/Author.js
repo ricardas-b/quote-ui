@@ -5,7 +5,12 @@ import {BASE_AUTHOR_URL} from "../settings";
 class Author extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { ...props };
+        this.state = {
+            id: this.props.id,
+            first_name: "",
+            middle_name: "",
+            last_name: ""
+        };
     }
 
     async fetchData(authorId) {
@@ -19,10 +24,7 @@ class Author extends React.Component {
     }
 
     render() {
-        const firstName = this.state.first_name;
-        const middleName = this.state.middle_name;
-        const lastName = this.state.last_name;
-        const fullName = `${firstName}${middleName ? (" " + middleName) : ""} ${lastName}`;
+        const fullName = `${this.state.first_name}${this.state.middle_name ? (" " + this.state.middle_name) : ""} ${this.state.last_name}`;
 
         return (
             <div className="author-details">{fullName}</div>

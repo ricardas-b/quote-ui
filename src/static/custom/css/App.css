@@ -139,9 +139,7 @@ hr.nav-separator {
     margin: 3px;
 }
 
-.tag-label-list {
-
-}
+.tag-label-list {}
 
 .quote-text {
     column-count: 2;
@@ -153,3 +151,6 @@ hr.nav-separator {
 .quote-component {
     padding: 0px 0px 90px 0px;
 }
+
+author-details {}
+
