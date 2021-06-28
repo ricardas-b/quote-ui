@@ -10,7 +10,7 @@ class QuoteList extends React.Component {
                 {this.props.quoteIds.length > 0 ? <h2>Results</h2> : ""}
                 <div className={"inside-card-separator-30"}></div>
                 {this.props.quoteIds
-                    .map((id) => <Quote key={id} id={id}/>)
+                    .map((id) => <div><Quote key={id} id={id}/><hr style={{width: "50%"}} /><div className={"inside-card-separator-60"}></div></div>)
                 }
             </div>
         );
