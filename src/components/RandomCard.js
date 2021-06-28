@@ -34,7 +34,8 @@ class RandomCard extends React.Component {
         return (
             <>
                 <h2 className="card-caption">Random Quote Card Caption: TBD</h2>
-                <button className="custom-button card-button" type="button" onClick={() => this.fetchData()}>
+                <div className={"inside-card-separator-15"}></div>
+                <button className="custom-button" type="button" onClick={() => this.fetchData()}>
                     Another <i className="fa fa-random"></i>
                 </button>
                 <div className={"inside-card-separator-60"}></div>

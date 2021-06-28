@@ -30,14 +30,12 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="app">
-				<div className="custom-card">
-					<NavigationPanel ref={this.navigationPanelComponent} activeCard={this.state.activeCard} onCardChange={this.handleCardChange}/>
-					<div className="custom-card-content">
-						{(this.state.activeCard === "about") && <AboutCard />}
-						{(this.state.activeCard === "random") && <RandomCard />}
-						{(this.state.activeCard === "search") && <SearchCard />}
-					</div>
+			<div className="card" style={{marginTop: 5, border: 0}}> {/* Helps with alignment of tab horizontal border on Android browser */}
+				<NavigationPanel ref={this.navigationPanelComponent} activeCard={this.state.activeCard} onCardChange={this.handleCardChange}/>
+				<div className="custom-card-panel">
+					{(this.state.activeCard === "about") && <AboutCard />}
+					{(this.state.activeCard === "random") && <RandomCard />}
+					{(this.state.activeCard === "search") && <SearchCard />}
 				</div>
 			</div>
 		);

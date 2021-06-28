@@ -2,10 +2,9 @@ import React from 'react';
 import ReactTags from 'react-tag-autocomplete';
 
 import { QuoteList } from './QuoteList';
-import { LabelList } from './LabelList';
-import {RANDOM_QUOTE_URL, STARTS_WITH_TAGS_URL, TAGGED_QUOTE_URL, TAGS_URL} from "../settings";
-import {Label} from "./Label";
-
+import { TagLabelList } from './TagLabelList';
+import { RANDOM_QUOTE_URL, STARTS_WITH_TAGS_URL, TAGGED_QUOTE_URL, TAGS_URL } from "../settings";
+import {TagLabel} from "./TagLabel";
 
 
 
@@ -105,7 +104,7 @@ class QuoteSearchForm extends React.Component {
             <div>
                 Selected tags:
                 <div className={"inside-card-separator-15"}></div>
-                <form onSubmit={null}>
+                <form onSubmit={null} style={{width: "100%"}}>
                     <label>
                         <ReactTags
                             ref={this.reactTags}
@@ -121,9 +120,9 @@ class QuoteSearchForm extends React.Component {
                     </label>
                 </form>
 
-                <details open>
+                <details open={false}>
                     <summary>Possible tags</summary>
-                    <LabelList tags={this.state.remainingTags}/>
+                    <TagLabelList tags={this.state.remainingTags}/>
                 </details>
 
                 <div className={"inside-card-separator-30"}></div>

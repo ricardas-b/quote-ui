@@ -15,6 +15,31 @@ h5 {
     line-height: 1.2;
 }
 
+label {
+    width: 100%;
+}
+
+details {
+    border: 1px solid #D1D1D1;
+    padding: .5em .5em 0;
+}
+
+summary {
+    color: #444444;
+    font-weight:normal;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #D1D1D1;
+    margin-bottom: .5em;
+}
+
 .custom-card {
     max-width: 800px;
     flex: 1 1 50%;
@@ -32,7 +57,7 @@ h5 {
 */
 
 
-.custom-card-content {
+.custom-card-panel {
     color: #444444;
     padding: 30px 30px 30px 30px;
 }
@@ -74,7 +99,7 @@ div.inside-card-separator-60 {
 button.nav-button {
     border: 1px solid black;
     margin-right: 3px;
-    outline:none;   /* Removes focus-frame */
+    outline: none;   /* Removes focus-frame */
 }
 
 button.nav-button-active {
@@ -106,15 +131,16 @@ hr.nav-separator {
     background: #54b2cb;
 }
 
-.label {
+.tag-label {
     display: inline-block;
     color: white;
+    background-color: gray;
     padding: 3px 8px;
     margin: 3px;
 }
 
-.label-info {
-    background-color: gray;
+.tag-label-list {
+
 }
 
 .quote-text {
@@ -126,28 +152,4 @@ hr.nav-separator {
 
 .quote-component {
     padding: 0px 0px 90px 0px;
-}
-
-
-
-
-details {
-    border: 1px solid #D1D1D1;
-    padding: .5em .5em 0;
-}
-
-summary {
-    color: #444444;
-    font-weight:normal;
-    margin: -.5em -.5em 0;
-    padding: .5em;
-}
-
-details[open] {
-    padding: .5em;
-}
-
-details[open] summary {
-    border-bottom: 1px solid #D1D1D1;
-    margin-bottom: .5em;
 }

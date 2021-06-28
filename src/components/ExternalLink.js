@@ -2,17 +2,12 @@ import React from "react";
 
 
 class ExternalLink extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { ...props };
-    }
-
     render() {
         return (
             <div className="external-link">
-                <a href={this.state.url}>
-                    Quote Link
-                    <span> </span>
+                <a href={this.props.url}>
+                    {this.props.text}
+                    <span>&nbsp;</span>
                     <i className="fa fa-external-link-square" aria-hidden="true"></i>
                 </a>
             </div>

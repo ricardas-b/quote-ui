@@ -1,4 +1,5 @@
-const BASE_URL = "http://127.0.0.1:8000/api/v1/";
+//const BASE_URL = "http://127.0.0.1:8000/api/v1/";
+const BASE_URL = "https://oi100128.pythonanywhere.com/api/v1/";
 
 const BASE_QUOTE_URL = BASE_URL + "quotes/";
 const BASE_AUTHOR_URL = BASE_URL + "authors/";

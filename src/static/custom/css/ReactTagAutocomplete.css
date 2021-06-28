@@ -71,6 +71,7 @@
 }
 
 .react-tags__search {
+    width: 100%;
     display: inline-block;
 
     /* match tag layout */
