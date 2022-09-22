@@ -17,6 +17,7 @@ typings/
 /.pnp
 .pnp.js
 /coverage
+.env
 
 
 

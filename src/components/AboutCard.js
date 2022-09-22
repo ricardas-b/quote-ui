@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ExternalLink } from "./ExternalLink";
+import { BASE_URL } from "../settings";
 
 
 class AboutCard extends React.Component {
@@ -13,8 +14,8 @@ class AboutCard extends React.Component {
 
 
                 <div>
-                    API starting point:
-                    <ExternalLink url={"http://127.0.0.1:8000/api/v1/quotes/"} text={"http://127.0.0.1:8000/api/v1/quotes/"}/>
+                    API entry point:
+                    <ExternalLink url={BASE_URL} text={BASE_URL}/>
                 </div>
                 <br />
 
