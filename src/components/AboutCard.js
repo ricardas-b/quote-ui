@@ -8,8 +8,8 @@ class AboutCard extends React.Component {
     render() {
         return (
             <>
-                <h2 className="card-caption">About Card Caption: TBD</h2>
-                <div>About Text: TBD</div>
+                <h2 className="card-caption">About</h2>
+                <div>This web-GUI is built on top of Quote API, see API details below</div>
                 <div className={"inside-card-separator-60"}></div>
 
 
