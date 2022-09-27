@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ExternalLink } from "./ExternalLink";
-import { BASE_QUOTE_URL } from "../settings";
+import { BASE_QUOTE_URL, STATIC_URL } from "../settings";
 
 
 class AboutCard extends React.Component {
@@ -21,13 +21,13 @@ class AboutCard extends React.Component {
 
                 <div>
                     API Documentation:
-                    <ExternalLink url={"file:///schema.txt"} text={"OpenAPI Schema"}/>
+                    <ExternalLink url={STATIC_URL + "schema.yml"} text={"OpenAPI Schema"}/>
                 </div>
                 <br />
 
                 <div>
                     Database File:
-                    <ExternalLink url={"file:///db.sqlite3"} text={"SQLite DB"}/>
+                    <ExternalLink url={STATIC_URL + "db.sqlite3"} text={"SQLite DB"}/>
                 </div>
                 <br />
 
